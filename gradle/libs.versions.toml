@@ -1,0 +1,28 @@
+[plugins]
+shadowPlugin = { id = "com.gradleup.shadow", version.ref = "shadowGradlePlugin" }
+generatePOMPlugin = { id = "ru.vyarus.java-lib", version.ref = "generatePOMGradlePlugin" }
+spotBugsPlugin = { id = "com.github.spotbugs", version.ref = "spotBugsGradlePlugin" }
+
+[versions]
+shadowGradlePlugin = "9.2.2"
+generatePOMGradlePlugin = "3.0.0"
+spotBugsGradlePlugin = "6.4.4"
+userdevGradlePlugin = "2.0.0-beta.14"
+
+bukkitAPI = "1.21.11-R0.1-SNAPSHOT"
+adventure = "4.26.1"
+adventurePlatform = "4.4.1"
+annotations = "24.1.0"
+
+[libraries]
+papermc-paperapi = { group = "io.papermc.paper", name = "paper-api", version.ref = "bukkitAPI" }
+spigotmc-spigotapi = { group = "org.spigotmc", name = "spigot-api", version.ref = "bukkitAPI" }
+kyori-adventure-api = { group = "net.kyori", name = "adventure-api", version.ref = "adventure" }
+kyori-adventure-minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version.ref = "adventure" }
+kyori-adventure-gson = { group = "net.kyori", name = "adventure-text-serializer-gson", version.ref = "adventure" }
+kyori-adventure-ansi = { group = "net.kyori", name = "adventure-text-serializer-ansi", version.ref = "adventure" }
+kyori-adventure-legacy = { group = "net.kyori", name = "adventure-text-serializer-legacy", version.ref = "adventure" }
+kyori-platform-api = { group = "net.kyori", name = "adventure-platform-api", version.ref = "adventurePlatform" }
+kyori-platform-bukkit = { group = "net.kyori", name = "adventure-platform-bukkit", version.ref = "adventurePlatform" }
+kyori-platform-bungee = { group = "net.kyori", name = "adventure-platform-bungeecord", version.ref = "adventurePlatform" }
+jetbrains-annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }

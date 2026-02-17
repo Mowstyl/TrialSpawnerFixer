@@ -1,0 +1,9 @@
+name: TrialSpawnerLootFix
+main: com.clanjhoo.trialspawnerlootfix.TrialSpawnerLootFix
+version: 1.0.0-SNAPSHOT
+description: Fixes manually placed trial spawners not dropping from ominous loot table when in ominous state.
+api-version: "1.21"
+authors: [Mowstyl]
+website: https://clanjhoo.com
+softdepend: []
+loadbefore: []

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.clanjhoo.trialspawnerlootfix.listeners","l":"TrialSpawnerListener"},{"p":"com.clanjhoo.trialspawnerlootfix","l":"TrialSpawnerLootFix"}];updateSearchResults();
