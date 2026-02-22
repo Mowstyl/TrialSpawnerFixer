@@ -42,11 +42,31 @@ repositories {
             includeGroup("net.md-5")
         }
     }
+    maven {
+        url = uri("https://maven.enginehub.org/repo/")
+        content {
+            includeGroup("com.sk89q.worldedit")
+            includeGroup("com.sk89q.worldedit.worldedit-libs")
+            includeGroup("com.sk89q.worldguard")
+        }
+    }
     mavenCentral()
 }
 
 dependencies {
     compileOnly(libs.papermc.paperapi)
+    compileOnly(libs.sk89q.worldedit.core) {
+        isTransitive = false
+    }
+    compileOnly(libs.sk89q.worldedit.bukkit) {
+        isTransitive = false
+    }
+    compileOnly(libs.sk89q.worldguard.core) {
+        isTransitive = false
+    }
+    compileOnly(libs.sk89q.worldguard.bukkit) {
+        isTransitive = false
+    }
     compileOnly(libs.kyori.adventure.minimessage)
     compileOnly(libs.kyori.adventure.gson)
     compileOnly(libs.kyori.platform.bukkit)
@@ -62,7 +82,7 @@ tasks {
     }
 
     processResources {
-        filesMatching("**/plugin.yml") {
+        filesMatching("**/paper-plugin.yml") {
             expand( project.properties )
         }
     }

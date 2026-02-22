@@ -2,6 +2,11 @@ package com.clanjhoo.trialspawnerlootfix;
 
 
 import com.clanjhoo.trialspawnerlootfix.listeners.TrialSpawnerListener;
+import com.sk89q.worldguard.WorldGuard;
+import com.sk89q.worldguard.protection.flags.Flag;
+import com.sk89q.worldguard.protection.flags.StringFlag;
+import com.sk89q.worldguard.protection.flags.registry.FlagConflictException;
+import com.sk89q.worldguard.protection.flags.registry.FlagRegistry;
 import net.kyori.adventure.platform.AudienceProvider;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;
@@ -17,11 +22,37 @@ public class TrialSpawnerLootFix extends JavaPlugin {
 
 	private AudienceProvider adventure;
 	private TrialSpawnerListener listener;
+	public static StringFlag VAULT_KEY_TAG;
 
 
 	// -------------------------------------------- //
 	// OVERRIDE
 	// -------------------------------------------- //
+
+	@Override
+	public void onLoad() {
+		// Register flags
+		FlagRegistry registry = WorldGuard.getInstance().getFlagRegistry();
+		StringFlag auxFlag;
+		String flagName;
+		flagName = "vault-key-tag";
+		try {
+			auxFlag = new StringFlag(flagName, "");
+			registry.register(auxFlag);
+			VAULT_KEY_TAG = auxFlag; // only set our field if there was no error
+		} catch (FlagConflictException e) {
+			// some other plugin registered a flag by the same name already.
+			// you can use the existing flag, but this may cause conflicts - be sure to check type
+			Flag<?> existing = registry.get(flagName);
+			if (existing instanceof StringFlag) {
+				VAULT_KEY_TAG = (StringFlag) existing;
+			}
+			else {
+				// types don't match - this is bad news! some other plugin conflicts with you
+				// hopefully this never actually happens
+			}
+		}
+	}
 
 	@Override
 	public void onEnable() {

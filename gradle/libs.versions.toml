@@ -10,6 +10,8 @@ spotBugsGradlePlugin = "6.4.4"
 userdevGradlePlugin = "2.0.0-beta.14"
 
 bukkitAPI = "1.21.11-R0.1-SNAPSHOT"
+worldedit = "7.4.0-SNAPSHOT"
+worldguard = "7.1.0-SNAPSHOT"
 adventure = "4.26.1"
 adventurePlatform = "4.4.1"
 annotations = "24.1.0"
@@ -17,6 +19,10 @@ annotations = "24.1.0"
 [libraries]
 papermc-paperapi = { group = "io.papermc.paper", name = "paper-api", version.ref = "bukkitAPI" }
 spigotmc-spigotapi = { group = "org.spigotmc", name = "spigot-api", version.ref = "bukkitAPI" }
+sk89q-worldedit-core = { group = "com.sk89q.worldedit", name = "worldedit-core", version.ref = "worldedit" }
+sk89q-worldedit-bukkit = { group = "com.sk89q.worldedit", name = "worldedit-bukkit", version.ref = "worldedit" }
+sk89q-worldguard-core = { group = "com.sk89q.worldguard", name = "worldguard-core", version.ref = "worldguard" }
+sk89q-worldguard-bukkit = { group = "com.sk89q.worldguard", name = "worldguard-bukkit", version.ref = "worldguard" }
 kyori-adventure-api = { group = "net.kyori", name = "adventure-api", version.ref = "adventure" }
 kyori-adventure-minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version.ref = "adventure" }
 kyori-adventure-gson = { group = "net.kyori", name = "adventure-text-serializer-gson", version.ref = "adventure" }
