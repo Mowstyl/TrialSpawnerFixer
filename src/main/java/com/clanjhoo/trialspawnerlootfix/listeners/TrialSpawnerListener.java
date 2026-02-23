@@ -63,18 +63,17 @@ public class TrialSpawnerListener implements Listener {
         if (event.getBlock().getType() != Material.TRIAL_SPAWNER)
             return;
 
+        Location location = event.getBlock().getLocation();
         TrialSpawner trialSpawner = (TrialSpawner) event.getBlock().getState(false);
         TrialSpawnerConfiguration config = trialSpawner.isOminous() ?
                 trialSpawner.getOminousConfiguration() :
                 trialSpawner.getNormalConfiguration();
         if (trialSpawner.isOminous()) {
-            if (!config.getPossibleRewards().containsKey(LootTables.OMINOUS_TRIAL_CHAMBER_KEY.getLootTable()) ||
-                    !config.getPossibleRewards().containsKey(LootTables.OMINOUS_TRIAL_CHAMBER_CONSUMABLES.getLootTable())) {
-                config.setPossibleRewards(DEFAULT_OMINOUS_SPAWNER_LOOT);
-            }
-            else {
+            if (config.getPossibleRewards().containsKey(LootTables.OMINOUS_TRIAL_CHAMBER_KEY.getLootTable()) ||
+                    config.getPossibleRewards().containsKey(LootTables.OMINOUS_TRIAL_CHAMBER_CONSUMABLES.getLootTable())) {
                 return;
             }
+            config.setPossibleRewards(DEFAULT_OMINOUS_SPAWNER_LOOT);
         }
 
         int total = config.getPossibleRewards().values().stream().reduce(Integer::sum).orElse(0);
@@ -89,7 +88,6 @@ public class TrialSpawnerListener implements Listener {
             }
         }
 
-        Location location = event.getBlock().getLocation();
         if (picked == null) {
             if (total != 0) {
                 plugin.log(Level.WARNING, "Error picking LootTable for spawner in " + location);
