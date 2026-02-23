@@ -1,0 +1,12 @@
+name: ${rootProject.projectName}
+version: ${rootProject.version}
+main: ${rootProject.group}.${rootProject.name}.${rootProject.projectName}
+description: ${rootProject.description}
+api-version: "1.21"
+authors: [Mowstyl]
+website: https://clanjhoo.com
+softdepend: [WorldGuard]
+libraries:
+  - ${libs.kyori.adventure.minimessage.get()}
+  - ${libs.kyori.adventure.gson.get()}
+  - ${libs.kyori.platform.bukkit.get()}

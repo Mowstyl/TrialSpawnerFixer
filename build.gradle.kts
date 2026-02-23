@@ -11,7 +11,7 @@ plugins {
 
 
 group = "com.clanjhoo"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 description = "Fixes manually placed trial spawners not dropping from ominous loot table when in ominous state."
 
 ext.set("projectName", gradle.extra["projectName"].toString())
@@ -55,6 +55,7 @@ repositories {
 
 dependencies {
     compileOnly(libs.papermc.paperapi)
+    /*
     compileOnly(libs.sk89q.worldedit.core) {
         isTransitive = false
     }
@@ -67,6 +68,7 @@ dependencies {
     compileOnly(libs.sk89q.worldguard.bukkit) {
         isTransitive = false
     }
+     */
     compileOnly(libs.kyori.adventure.minimessage)
     compileOnly(libs.kyori.adventure.gson)
     compileOnly(libs.kyori.platform.bukkit)
@@ -83,6 +85,10 @@ tasks {
 
     processResources {
         filesMatching("**/paper-plugin.yml") {
+            expand( project.properties )
+        }
+
+        filesMatching("**/plugin.yml") {
             expand( project.properties )
         }
 

@@ -11,10 +11,12 @@ import org.jetbrains.annotations.NotNull;
 public class TrialSpawnerLootFixLoader implements PluginLoader {
 
 	@Override
-	public void classloader(@NotNull PluginClasspathBuilder pluginClasspathBuilder) {
+	public void classloader(@NotNull PluginClasspathBuilder classpathBuilder) {
 		MavenLibraryResolver resolver = new MavenLibraryResolver();
 		resolver.addDependency(new Dependency(new DefaultArtifact("${libs.kyori.adventure.minimessage.get()}"), null));
 		resolver.addDependency(new Dependency(new DefaultArtifact("${libs.kyori.adventure.gson.get()}"), null));
 		resolver.addDependency(new Dependency(new DefaultArtifact("${libs.kyori.platform.bukkit.get()}"), null));
+
+		classpathBuilder.addLibrary(resolver);
 	}
 }
