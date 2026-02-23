@@ -1,9 +1,16 @@
 name: ${rootProject.projectName}
 version: ${rootProject.version}
 main: ${rootProject.group}.${rootProject.name}.${rootProject.projectName}
+loader: ${rootProject.group}.${rootProject.name}.${rootProject.projectName}Loader
 description: ${rootProject.description}
 api-version: "1.21"
 authors: [Mowstyl]
 website: https://clanjhoo.com
-softdepend: [WorldGuard, WorldEdit]
-loadbefore: []
+dependencies:
+  server:
+    # Add a required "RequiredPlugin" dependency, which will load AFTER your plugin.
+    WorldGuard:
+      load: BEFORE
+      required: true
+      # This means that your plugin will not have access to their classpath
+      join-classpath: false

@@ -85,5 +85,9 @@ tasks {
         filesMatching("**/paper-plugin.yml") {
             expand( project.properties )
         }
+
+        filesMatching("**/TrialSpawnerLootFixLoader.java") {
+            expand( project.properties )
+        }
     }
 }
